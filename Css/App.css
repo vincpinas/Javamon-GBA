@@ -1,0 +1,54 @@
+/* Any imports required multiple times across the site will be imported here. */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap'); 
+/*
+ The following two fonts come from blogfonts.com
+ (https://blogfonts.com/pokemon-gb.font)
+ These two special fonts will only be used for logos and animations.
+*/
+@font-face {
+    font-family: Pokemon GB;
+    src: url("../Fonts/PokemonGb-RAeo.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: Pokemon GB Japan;
+    src: url("../Fonts/PokemonGbJapanHrregular-Bq93.ttf") format('truetype');
+}
+
+/* Any CSS beyond this point will be globally applied to the whole document. */
+*, *::before, *::after {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a, button, input[type="submit"] {
+    text-decoration: none;
+    color: var(--textcolor);
+}
+
+body, html, #root {
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: var(--background);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+/* CSS Reset */
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: ''; content: none;}
+table {border-collapse: collapse; border-spacing: 0;}
