@@ -52,3 +52,26 @@ blockquote, q {quotes: none;}
 blockquote:before, blockquote:after,
 q:before, q:after {content: ''; content: none;}
 table {border-collapse: collapse; border-spacing: 0;}
+
+#app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0c0c0c;
+}
+
+.mainScreen-top, .mainScreen-bottom  {
+    position: relative;
+    margin: 5px;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.scene {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

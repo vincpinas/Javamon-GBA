@@ -1,4 +1,2 @@
-export const cssFiles = ['Animations', 'App', 'Mainscreen']
-export const config = {
-
-}
+export const cssFiles = ['Animations', 'App', 'Intro'];
+export const config = {};

@@ -36,9 +36,9 @@ export const cssLoader = (cssFiles) => {
     Note: this function destroys all scenes at once after the transition has finished.
 */
 export const destroyAllScenes = (canvas) => {
-    if(canvas.childNodes.length > 0) {
-        let tmp = createElementId('div', 'fadeCover')
-        canvas.appendChild(tmp)
+    let tmp = createElementClass('div', 'fadeCover')
+    if(canvas.childNodes.length > 0 && !canvas.firstChild.classList.contains('fadeCover')) {
+        canvas.insertBefore(tmp, canvas.firstChild)
 
         setTimeout(() => {
             while (canvas.firstChild) {
@@ -71,5 +71,11 @@ export const destroySceneNatural = (canvas, scene, element) => {
 
 export const seedConfig = (config) => {
     config.grayscale = false
-    config.controls = { up:'w', left:'a', down:'s', right:'d', accept:'x', cancel:'z' }
+    config.controls = { 
+        up:'w', left:'a', down:'s', right:'d', accept:'x', cancel:'z' 
+    }
+    config.screen = { 
+        top: { width: 768 , height: 416 }, bottom: { width: 660 , height: 350 }
+    }
+    config.checkpoints = ['intro'];
 }

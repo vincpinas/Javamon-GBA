@@ -1,0 +1,9 @@
+.fadeCover {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2000;
+    animation: fadeIn 1.3s forwards;
+    background-color: #ffffff;
+    opacity: 0;
+}   
