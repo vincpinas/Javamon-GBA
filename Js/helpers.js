@@ -75,7 +75,7 @@ export const seedConfig = (config) => {
         up:'w', left:'a', down:'s', right:'d', accept:'x', cancel:'z' 
     }
     config.screen = { 
-        top: { width: 768 , height: 416 }, bottom: { width: 660 , height: 350 }
+        top: { width: 768 , height: 416 }, bottom: { width: 730 , height: 350 }
     }
     config.checkpoints = new Set();
     config.checkpoints.add('intro');

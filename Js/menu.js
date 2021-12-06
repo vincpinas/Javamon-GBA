@@ -4,7 +4,7 @@ import { config } from "./var-dump.js"
 const startMenu = () => {
     let canvasTop, 
         canvasBottom, 
-        scenes
+        menuItems
 
     canvasTop = document.querySelector('.mainScreen-top')
     canvasBottom = document.querySelector('.mainScreen-bottom')
@@ -12,23 +12,34 @@ const startMenu = () => {
     canvasTop.classList.add('menu')
     canvasBottom.classList.add('menu')
 
-    // An array of scenes used to dynamically create and destroy scenes when necessary.
-    scenes = [
-        { name: 'mainMenu', duration: null }
+    canvasTop.appendChild(createElementClass('div', `scene mainMenu`))
+
+    menuItems = [
+        { name: 'continue' },
+        { name: 'new game' },
+        { name: 'mystery gift' },
+        { name: 'settings' }
     ];
 
-    // Functionality to actually create the scene elements and destroy them after the element has played for it's duration.
-    scenes.map(scene => {
-        let tmp = createElementClass('div', `scene ${scene.name}`);
-        canvasTop.appendChild(tmp)
+    menuItems.map(item => {
+        let wrapper = createElementClass('span', `menuButton-wrapper menu${item.name}`)
+        let outer = createElementClass('span', `menuButton-outer`)
+        let innerBorder = createElementClass('span', `menuButton-innerborder`)
+        let menuButton = createElementClass('span', `menuButton`)
 
-        destroySceneNatural(canvasTop, scene, tmp)
+        wrapper.appendChild(outer)
+        outer.appendChild(innerBorder)
+        innerBorder.appendChild(menuButton)
+
+        menuButton.innerHTML = item.name
+
+        document.querySelector('.mainMenu').appendChild(wrapper)
     });
 
     // Clean up before loading in any new components.
     setInterval(() => {
         canvasTop.childNodes.length === 0 ? 
-            (config.checkpoints.push('game'),
+            (config.checkpoints.add('game'),
              canvasTop.classList.remove('menu'), canvasBottom.classList.add('menu'))
         : null
     }, 100)

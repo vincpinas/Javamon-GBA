@@ -33,4 +33,4 @@ setInterval(() => {
             : null
         break;
     }
-}, 540)
+},100)

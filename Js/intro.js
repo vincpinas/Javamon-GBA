@@ -30,7 +30,7 @@ const startIntro = () => {
 
     // Destroys all scenes to in a way "skip" the intro.
     keyEvent = (e) => {
-        (e.key.toLowerCase() == config.controls.accept || e.key.toLowerCase() == config.controls.cancel) ?
+        (e.key.toLowerCase() == config.controls.accept || e.key.toLowerCase() == config.controls.cancel) && canvasTop.classList.contains('intro') ?
             (destroyAllScenes(canvasTop), destroyAllScenes(canvasBottom))
         : null
     }
@@ -41,7 +41,7 @@ const startIntro = () => {
     // Clean up before loading in any new components.
     setInterval(() => {
         canvasTop.childNodes.length === 0 ? 
-            (document.removeEventListener('keypress', keyEvent), config.checkpoints.add('menu'),
+            (document.removeEventListener('keypress', e => keyEvent(e)), config.checkpoints.add('menu'),
              canvasTop.classList.remove('intro'), canvasBottom.classList.remove('intro'))
         : null
     }, 100)

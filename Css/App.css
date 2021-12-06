@@ -29,15 +29,12 @@
 
 a, button, input[type="submit"] {
     text-decoration: none;
-    color: var(--textcolor);
 }
 
 body, html, #root {
     overflow-x: hidden;
     height: 100%;
     width: 100%;
-    background-color: var(--background);
-    color: var(--text);
     display: flex;
     flex-direction: column;
 }
@@ -67,7 +64,7 @@ table {border-collapse: collapse; border-spacing: 0;}
     position: relative;
     margin: 5px;
     overflow: hidden;
-    background-color: #000000;
+    background-color: rgb(26, 26, 26);
 }
 
 .scene {
