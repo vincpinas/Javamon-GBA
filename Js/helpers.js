@@ -70,12 +70,14 @@ export const destroySceneNatural = (canvas, scene, element) => {
 }
 
 export const seedConfig = (config) => {
-    config.grayscale = false
+    config.grayscale = false;
     config.controls = { 
         up:'w', left:'a', down:'s', right:'d', accept:'x', cancel:'z' 
     }
     config.screen = { 
         top: { width: 768 , height: 416 }, bottom: { width: 660 , height: 350 }
     }
-    config.checkpoints = ['intro'];
+    config.checkpoints = new Set();
+    config.checkpoints.add('intro');
+
 }

@@ -29,7 +29,7 @@ const startMenu = () => {
     setInterval(() => {
         canvasTop.childNodes.length === 0 ? 
             (config.checkpoints.push('game'),
-             canvasTop.classList.remove('menu'), canvasBottom.classList.remove('menu'))
+             canvasTop.classList.remove('menu'), canvasBottom.classList.add('menu'))
         : null
     }, 100)
 }

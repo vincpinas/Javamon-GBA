@@ -41,7 +41,7 @@ const startIntro = () => {
     // Clean up before loading in any new components.
     setInterval(() => {
         canvasTop.childNodes.length === 0 ? 
-            (document.removeEventListener('keypress', keyEvent), config.checkpoints.push('menu'),
+            (document.removeEventListener('keypress', keyEvent), config.checkpoints.add('menu'),
              canvasTop.classList.remove('intro'), canvasBottom.classList.remove('intro'))
         : null
     }, 100)

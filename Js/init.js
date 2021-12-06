@@ -20,7 +20,8 @@ bottomScreen.style.width = `${config.screen.bottom.width}px`
 bottomScreen.style.height = `${config.screen.bottom.height}px`
 
 setInterval(() => {
-    switch(config.checkpoints[config.checkpoints.length-1]) {
+    let configLocale = Array.from(config.checkpoints)
+    switch(configLocale[configLocale.length-1]) {
         case 'intro':
             !topScreen.classList.contains('intro') ?
                 startIntro()     
@@ -32,4 +33,4 @@ setInterval(() => {
             : null
         break;
     }
-}, 500)
+}, 540)
