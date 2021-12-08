@@ -1,0 +1,9 @@
+@mixin border-opac($opac: 1.0, $sides: 'in', $thick: 2px, $col: $initial-dark) {
+    @if($sides == 'in') { border: $thick solid rgba($color: $col, $alpha: $opac); } 
+    @else if($sides == 'tb') {
+        border-top: $thick solid rgba($color: $col, $alpha: $opac);
+        border-bottom: $thick solid rgba($color: $col, $alpha: $opac); } 
+    @else if($sides == 'lr') {
+        border-left: $thick solid rgba($color: $col, $alpha: $opac);
+        border-right: $thick solid rgba($color: $col, $alpha: $opac); }
+}

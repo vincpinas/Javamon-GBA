@@ -5,7 +5,7 @@ import { cssFiles, config } from './var-dump.js';
 // Import components
 import startIntro from './intro.js';
 import startMenu from './menu.js';
-
+import startGame from './game.js';
 
 cssLoader(cssFiles)
 seedConfig(config)
@@ -24,13 +24,18 @@ setInterval(() => {
     switch(configLocale[configLocale.length-1]) {
         case 'intro':
             !topScreen.classList.contains('intro') ?
-                startIntro()     
+                startIntro('intro')
             : null
         break;
         case 'menu':
             !topScreen.classList.contains('menu') ?
-                startMenu()
+                startMenu('menu')
+            : null
+        break;
+        case 'game':
+            !topScreen.classList.contains('game') ?
+                startGame('game')
             : null
         break;
     }
-},100)
+}, 100)

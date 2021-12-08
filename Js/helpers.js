@@ -79,5 +79,4 @@ export const seedConfig = (config) => {
     }
     config.checkpoints = new Set();
     config.checkpoints.add('intro');
-
 }

@@ -1,8 +1,0 @@
-.fadeCover {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    animation: fadeIn 1.3s forwards;
-    background-color: #ffffff;
-    opacity: 0;
-}   

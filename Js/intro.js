@@ -1,7 +1,7 @@
 import { createElementClass, destroySceneNatural, destroyAllScenes } from "./helpers.js"
 import { config } from "./var-dump.js"
 
-const startIntro = () => {
+const startIntro = (componentName) => {
     let canvasTop, 
         canvasBottom, 
         scenes, 
@@ -10,8 +10,8 @@ const startIntro = () => {
     canvasTop = document.querySelector('.mainScreen-top')
     canvasBottom = document.querySelector('.mainScreen-bottom')
 
-    canvasTop.classList.add('intro')
-    canvasBottom.classList.add('intro')
+    canvasTop.classList.add(componentName)
+    canvasBottom.classList.add(componentName)
 
     // An array of scenes used to dynamically create and destroy scenes when necessary.
     scenes = [
@@ -30,7 +30,7 @@ const startIntro = () => {
 
     // Destroys all scenes to in a way "skip" the intro.
     keyEvent = (e) => {
-        (e.key.toLowerCase() == config.controls.accept || e.key.toLowerCase() == config.controls.cancel) && canvasTop.classList.contains('intro') ?
+        (e.key.toLowerCase() == config.controls.accept || e.key.toLowerCase() == config.controls.cancel) && canvasTop.classList.contains(componentName) ?
             (destroyAllScenes(canvasTop), destroyAllScenes(canvasBottom))
         : null
     }
@@ -40,9 +40,11 @@ const startIntro = () => {
 
     // Clean up before loading in any new components.
     setInterval(() => {
-        canvasTop.childNodes.length === 0 ? 
-            (document.removeEventListener('keypress', e => keyEvent(e)), config.checkpoints.add('menu'),
-             canvasTop.classList.remove('intro'), canvasBottom.classList.remove('intro'))
+        canvasTop.childNodes.length === 0 && canvasTop.classList.contains(componentName) ? 
+            (
+                document.removeEventListener('keypress', e => keyEvent(e)), config.checkpoints.add('menu'),
+                canvasTop.classList.remove(componentName), canvasBottom.classList.remove(componentName)
+             )
         : null
     }, 100)
 }

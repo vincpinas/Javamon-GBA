@@ -1,0 +1,186 @@
+/* Any font imports required multiple times across the site will be imported here. */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+/*
+ The following two fonts come from blogfonts.com
+ (https://blogfonts.com/pokemon-gb.font)
+ These two special fonts will only be used for logos and animations.
+*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+@font-face {
+  font-family: Pokemon GB;
+  src: url("../Fonts/PokemonGb-RAeo.ttf") format("truetype");
+}
+@font-face {
+  font-family: Pokemon GB Japan;
+  src: url("../Fonts/PokemonGbJapanHrregular-Bq93.ttf") format("truetype");
+}
+/* Component colors */
+/* Any CSS beyond this point will be globally available to all components in the document. */
+*, *::before, *::after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a, button, input[type=submit] {
+  text-decoration: none;
+}
+
+body, html, #root {
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CSS Reset */
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0c0c0c;
+}
+
+.mainScreen-top, .mainScreen-bottom {
+  position: relative;
+  margin: 5px;
+  overflow: hidden;
+  background-color: black;
+}
+
+.scene {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.fadeCover {
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  animation: fadeIn 1.3s forwards;
+  background-color: #ffffff;
+  opacity: 0;
+}
+
+/* Any font imports required multiple times across the site will be imported here. */
+/*
+ The following two fonts come from blogfonts.com
+ (https://blogfonts.com/pokemon-gb.font)
+ These two special fonts will only be used for logos and animations.
+*/
+@font-face {
+  font-family: Pokemon GB;
+  src: url("../Fonts/PokemonGb-RAeo.ttf") format("truetype");
+}
+@font-face {
+  font-family: Pokemon GB Japan;
+  src: url("../Fonts/PokemonGbJapanHrregular-Bq93.ttf") format("truetype");
+}
+/* Component colors */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blinking {
+  0% {
+    border: 2px solid #ff2929;
+    border: 2px solid #ff2929;
+  }
+  50% {
+    border: 2px solid rgba(255, 41, 41, 0.58);
+    border: 2px solid #520000;
+  }
+  100% {
+    border: 2px solid #ff2929;
+    border: 2px solid #ff2929;
+  }
+}
+.mainMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.menuButton-wrapper {
+  text-transform: uppercase;
+  border-radius: 1px;
+  margin: 3px;
+  width: 60%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.menuButton-outer {
+  display: flex;
+  border-top: 2px solid rgba(51, 51, 51, 0.6);
+  border-bottom: 2px solid rgba(51, 51, 51, 0.6);
+  border-left: 3px solid rgba(51, 51, 51, 0.6);
+  border-right: 3px solid rgba(51, 51, 51, 0.6);
+}
+
+.menuButton-innerborder {
+  display: flex;
+  width: 100%;
+  border: 2px solid rgba(51, 51, 51, 0.4);
+}
+
+.menuButton {
+  font-family: Pokemon GB;
+  font-size: 0.7em;
+  width: 100%;
+  padding: 5px;
+  border: 2px solid #333333;
+  background-color: black;
+}
+
+.menuselected {
+  animation: blinking 2s ease-in-out infinite;
+}
+
+/*# sourceMappingURL=index.css.map */

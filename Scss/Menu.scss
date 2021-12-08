@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: $initial-light;
 }
 
 .menuButton-wrapper {
@@ -11,21 +11,19 @@
     border-radius: 1px;
     margin: 3px;
     width: 60%;
-    border: 2px solid rgb(200, 200, 200);
+    @include border-opac(.8, 'in', 2px, $initial-light);
 }
 
 .menuButton-outer {
     display: flex;
-    border-top: 2.5px solid rgb(15, 15, 15);
-    border-bottom: 2.5px solid rgb(15, 15, 15);
-    border-left: 3px solid rgb(15, 15, 15);
-    border-right: 3px solid rgb(15, 15, 15);
+    @include border-opac(.6, 'tb');
+    @include border-opac(.6, 'lr', 3px);
 }
 
 .menuButton-innerborder {
     display: flex;
     width: 100%;
-    border: 2px solid rgb(27, 27, 27);
+    @include border-opac(.40);
 }
 
 .menuButton {
@@ -33,10 +31,10 @@
     font-size: 0.70em;
     width: 100%;
     padding: 5px;
-    border: 2px solid rgb(51, 51, 51);
-    background-color: rgba(51, 51, 51, 0.452);
+    border: 2px solid $initial-dark;
+    background-color: darken($color: $initial-dark, $amount: 60%);
 }
 
-.menucontinue {
+.menuselected {
     animation: blinking 2s ease-in-out infinite;
 }
