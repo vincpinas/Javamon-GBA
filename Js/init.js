@@ -20,8 +20,7 @@ bottomScreen.style.width = `${config.screen.bottom.width}px`
 bottomScreen.style.height = `${config.screen.bottom.height}px`
 
 setInterval(() => {
-    let configLocale = Array.from(config.checkpoints)
-    switch(configLocale[configLocale.length-1]) {
+    switch(config.checkpoints[config.checkpoints.length-1]) {
         case 'intro':
             if(!topScreen.classList.contains('intro') && !config.activecomponent) startIntro('intro', topScreen, bottomScreen)
         break;
@@ -32,4 +31,4 @@ setInterval(() => {
             if(!topScreen.classList.contains('game') && !config.activecomponent) startGame('game', topScreen, bottomScreen)
         break;
     }
-}, 25)
+}, 25);

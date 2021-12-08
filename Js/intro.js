@@ -1,4 +1,4 @@
-import { createElementClass, destroySceneNatural, destroyAllScenes } from "./helpers.js"
+import { createElementClass, destroySceneNatural, destroyAllScenes, checkpointsAdd } from "./helpers.js"
 import { config } from "./var-dump.js"
 
 const startIntro = (componentName, canvasTop, canvasBottom) => {
@@ -43,7 +43,7 @@ const startIntro = (componentName, canvasTop, canvasBottom) => {
     setInterval(() => {
         canvasTop.childNodes.length === 0 && canvasTop.classList.contains(componentName) ? 
             (
-                document.removeEventListener('keypress', e => keyEvent(e)), config.checkpoints.add('menu'),
+                document.removeEventListener('keypress', e => keyEvent(e)), checkpointsAdd(config.checkpoints, 'menu'),
                 canvasTop.classList.remove(componentName), canvasBottom.classList.remove(componentName),
                 config.activecomponent = false
              )

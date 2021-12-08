@@ -85,7 +85,11 @@ export const seedConfig = (config) => {
     config.screen = { 
         top: { width: 768 , height: 416 }, bottom: { width: 730 , height: 350 }
     }
-    config.checkpoints = new Set();
-    config.checkpoints.add('intro');
+    config.checkpoints = [];
+    config.checkpoints.push('intro');
     config.activecomponent = false
+}
+
+export const checkpointsAdd = (config, item) => {
+    if(item !== config[config.length-1]) config.push(item);
 }

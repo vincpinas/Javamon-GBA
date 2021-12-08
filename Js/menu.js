@@ -1,4 +1,4 @@
-import { createElementClass, destroyAllScenes, destroySceneNatural } from "./helpers.js"
+import { checkpointsAdd, createElementClass, destroyAllScenes, destroySceneNatural } from "./helpers.js"
 import { config } from "./var-dump.js"
 
 const startMenu = (componentName, canvasTop, canvasBottom) => {
@@ -21,7 +21,7 @@ const startMenu = (componentName, canvasTop, canvasBottom) => {
     menuItems = [
         { name: 'new_game', title: 'new game', component: 'game'},
         { name: 'mystery_gift', title: 'mystery gift', component: 'gift'},
-        { name: 'settings', title: 'settings', component: 'settings'}
+        { name: 'settings', title: 'settings', component: 'intro'}
     ];
 
     menuItems.map(item => {
@@ -50,7 +50,7 @@ const startMenu = (componentName, canvasTop, canvasBottom) => {
         else if(e.key.toLowerCase() === config.controls.down && selectedButton < (menuItems.length-1)) selectedButton += 1
 
         if(canvasTop.classList.contains(componentName)) {
-            menuItems.map(item => {
+            menuItems.map((item, index) => {
                 let current = document.querySelector(`.menu${item.name}`)
                 let selected = document.querySelector(`.menu${menuItems[selectedButton].name}`)
     
@@ -60,7 +60,7 @@ const startMenu = (componentName, canvasTop, canvasBottom) => {
                 if(e.key.toLowerCase() === config.controls.accept && selected == current) {
                     destroyAllScenes(canvasTop);
                     destroyAllScenes(canvasBottom);
-                    config.checkpoints.add(item.component);
+                    checkpointsAdd(config.checkpoints, item.component);
                 }
             });
         }
