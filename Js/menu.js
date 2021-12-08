@@ -1,13 +1,12 @@
 import { createElementClass, destroyAllScenes, destroySceneNatural } from "./helpers.js"
 import { config } from "./var-dump.js"
 
-const startMenu = (componentName) => {
-    let canvasTop, 
-        canvasBottom, 
-        menuItems,
+const startMenu = (componentName, canvasTop, canvasBottom) => {
+    let menuItems,
         keyEvent,
-        keyPress,
         selectedButton
+
+    config.activecomponent = true
 
     canvasTop = document.querySelector('.mainScreen-top');
     canvasBottom = document.querySelector('.mainScreen-bottom');
@@ -75,10 +74,10 @@ const startMenu = (componentName) => {
         canvasTop.childNodes.length === 0 && canvasTop.classList.contains(componentName) ? 
             (
                 canvasTop.classList.remove(componentName), canvasBottom.classList.remove(componentName),
-                document.removeEventListener('keypress', e => keyEvent(e))
+                document.removeEventListener('keypress', e => keyEvent(e)), config.activecomponent = false
             )
         : null
-    }, 100)
+    }, 25)
 }
 
 export default startMenu;

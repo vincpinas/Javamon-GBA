@@ -1,11 +1,12 @@
 import { createElementClass, destroySceneNatural, destroyAllScenes } from "./helpers.js"
 import { config } from "./var-dump.js"
 
-const startIntro = (componentName) => {
-    let canvasTop, 
-        canvasBottom, 
+const startIntro = (componentName, canvasTop, canvasBottom) => {
+    let
         scenes, 
         keyEvent
+
+    config.activecomponent = true
 
     canvasTop = document.querySelector('.mainScreen-top')
     canvasBottom = document.querySelector('.mainScreen-bottom')
@@ -43,10 +44,11 @@ const startIntro = (componentName) => {
         canvasTop.childNodes.length === 0 && canvasTop.classList.contains(componentName) ? 
             (
                 document.removeEventListener('keypress', e => keyEvent(e)), config.checkpoints.add('menu'),
-                canvasTop.classList.remove(componentName), canvasBottom.classList.remove(componentName)
+                canvasTop.classList.remove(componentName), canvasBottom.classList.remove(componentName),
+                config.activecomponent = false
              )
         : null
-    }, 100)
+    }, 25)
 }
 
 export default startIntro;

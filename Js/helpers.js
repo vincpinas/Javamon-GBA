@@ -27,7 +27,6 @@ export const cssLoader = (cssFiles) => {
         link.href = `./Css/${file}.css`
 
         head.appendChild(link);
-
     }) : null
 }
 
@@ -36,8 +35,8 @@ export const cssLoader = (cssFiles) => {
     Note: this function destroys all scenes at once after the transition has finished.
 */
 export const destroyAllScenes = (canvas) => {
-    let tmp = createElementClass('div', 'fadeCover')
-    if(canvas.childNodes.length > 0 && !canvas.firstChild.classList.contains('fadeCover')) {
+    let tmp = createElementClass('div', 'fadeInCover')
+    if(canvas.childNodes.length > 0 && !canvas.firstChild.classList.contains('fadeInCover')) {
         canvas.insertBefore(tmp, canvas.firstChild)
 
         setTimeout(() => {
@@ -48,9 +47,18 @@ export const destroyAllScenes = (canvas) => {
     }
 }
 
+export const createSceneFade = (canvas) => {
+    let tmp = createElementClass('div', 'fadeOutCover')
+    canvas.appendChild(tmp)
+
+    setTimeout(() => {
+        if(canvas.contains(tmp)) canvas.removeChild(tmp);
+    }, 1500)
+}
+
 /* 
     This function is to be used in combination with a map function on a array of all scenes
-    Note: this function doesn't actually work on the canvas element, but on a element containing div's
+    Note: this function doesn't actually work on the canvas HTML element, but on a element containing div's
     which in this case are "scenes"
     Note: If an element should not be destroyed, set the duration to null which is the same as setting the timeout to infinite
 */
@@ -79,4 +87,5 @@ export const seedConfig = (config) => {
     }
     config.checkpoints = new Set();
     config.checkpoints.add('intro');
+    config.activecomponent = false
 }

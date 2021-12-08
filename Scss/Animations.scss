@@ -9,6 +9,15 @@
     }
 }
 
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 @keyframes blinking {
     0% {
         @include border-opac(1, 'in', 2px, $special-red);

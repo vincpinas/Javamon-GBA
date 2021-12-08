@@ -23,19 +23,13 @@ setInterval(() => {
     let configLocale = Array.from(config.checkpoints)
     switch(configLocale[configLocale.length-1]) {
         case 'intro':
-            !topScreen.classList.contains('intro') ?
-                startIntro('intro')
-            : null
+            if(!topScreen.classList.contains('intro') && !config.activecomponent) startIntro('intro', topScreen, bottomScreen)
         break;
         case 'menu':
-            !topScreen.classList.contains('menu') ?
-                startMenu('menu')
-            : null
+            if(!topScreen.classList.contains('menu') && !config.activecomponent) startMenu('menu', topScreen, bottomScreen)
         break;
         case 'game':
-            !topScreen.classList.contains('game') ?
-                startGame('game')
-            : null
+            if(!topScreen.classList.contains('game') && !config.activecomponent) startGame('game', topScreen, bottomScreen)
         break;
     }
-}, 100)
+}, 25)
