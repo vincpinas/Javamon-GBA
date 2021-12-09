@@ -12,6 +12,33 @@ export const createElementClass = (type, className) => {
     return element;
 }
 
+// Seeds the config with all the necessary default values on initialization.
+export const seedConfig = (config) => {
+    config.grayscale = false;
+    config.controls = { 
+        up:'w', left:'a', down:'s', right:'d', accept:'x', cancel:'z' 
+    }
+    config.altcontrols = {
+        up:'PageUp', left:'Home', down:'PageDown', right:'End', accept:'x', cancel:'z' 
+    }
+    config.screen = { 
+        top: { width: 768 , height: 416 }, bottom: { width: 730 , height: 350 }
+    }
+    config.checkpoints = [];
+    config.checkpoints.push('intro');
+    config.activecomponent = false
+    config.cleanupInt = 1;
+}
+
+/* 
+    Checks as to not push duplicate checkpoints at the end and adds a new checkpoint to the array.
+    Note: A checkpoint is always a string used to reference to a component, 
+    this reference will be used in init.js to check for the current component.
+*/
+export const checkpointsAdd = (config, item) => {
+    if(item !== config[config.length-1]) config.push(item);
+}
+
 /*
     This function needs a array with the Css file names in the Css folder in order to work
     Note: this function doesn't actually load in the Css files, but creates a link element in the html
@@ -47,6 +74,7 @@ export const destroyAllScenes = (canvas) => {
     }
 }
 
+// Create a scene starting transition, handy to be used when initializing a new component after destroying one with destroyAllScenes();
 export const createSceneFade = (canvas) => {
     let tmp = createElementClass('div', 'fadeOutCover')
     canvas.appendChild(tmp)
@@ -75,21 +103,4 @@ export const destroySceneNatural = (canvas, scene, element) => {
             : null
         : null
     }, 100);
-}
-
-export const seedConfig = (config) => {
-    config.grayscale = false;
-    config.controls = { 
-        up:'w', left:'a', down:'s', right:'d', accept:'x', cancel:'z' 
-    }
-    config.screen = { 
-        top: { width: 768 , height: 416 }, bottom: { width: 730 , height: 350 }
-    }
-    config.checkpoints = [];
-    config.checkpoints.push('intro');
-    config.activecomponent = false
-}
-
-export const checkpointsAdd = (config, item) => {
-    if(item !== config[config.length-1]) config.push(item);
 }

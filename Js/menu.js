@@ -1,4 +1,4 @@
-import { checkpointsAdd, createElementClass, destroyAllScenes, destroySceneNatural } from "./helpers.js"
+import { checkpointsAdd, createElementClass, destroyAllScenes, createSceneFade } from "./helpers.js"
 import { config } from "./var-dump.js"
 
 const startMenu = (componentName, canvasTop, canvasBottom) => {
@@ -46,8 +46,8 @@ const startMenu = (componentName, canvasTop, canvasBottom) => {
     });
 
     keyEvent = (e) => {
-        if(e.key.toLowerCase() === config.controls.up && selectedButton > 0) selectedButton -= 1
-        else if(e.key.toLowerCase() === config.controls.down && selectedButton < (menuItems.length-1)) selectedButton += 1
+        if((e.key.toLowerCase() === config.controls.up || e.key.toLowerCase() === config.altcontrols.up) && selectedButton > 0) selectedButton -= 1;
+        else if((e.key.toLowerCase() === config.controls.down || e.key.toLowerCase() === config.altcontrols.down) && selectedButton < (menuItems.length-1)) selectedButton += 1;
 
         if(canvasTop.classList.contains(componentName)) {
             menuItems.map((item, index) => {
@@ -64,6 +64,7 @@ const startMenu = (componentName, canvasTop, canvasBottom) => {
                 }
             });
         }
+        console.log(e.key, e.keyCode, e)
     }
     canvasTop.childNodes.length > 0 && canvasTop.classList.contains(componentName) ?
         document.addEventListener('keypress', e => keyEvent(e))
@@ -77,7 +78,7 @@ const startMenu = (componentName, canvasTop, canvasBottom) => {
                 document.removeEventListener('keypress', e => keyEvent(e)), config.activecomponent = false
             )
         : null
-    }, 25)
+    }, config.cleanupInt)
 }
 
 export default startMenu;

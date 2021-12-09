@@ -31,4 +31,4 @@ setInterval(() => {
             if(!topScreen.classList.contains('game') && !config.activecomponent) startGame('game', topScreen, bottomScreen)
         break;
     }
-}, 25);
+}, config.cleanupInt);

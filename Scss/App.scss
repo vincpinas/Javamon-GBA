@@ -47,6 +47,11 @@ table {border-collapse: collapse; border-spacing: 0;}
     margin: 5px;
     overflow: hidden;
     background-color: darken($color: $initial-dark, $amount: 50%);
+
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .scene {

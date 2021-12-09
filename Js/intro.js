@@ -48,7 +48,7 @@ const startIntro = (componentName, canvasTop, canvasBottom) => {
                 config.activecomponent = false
              )
         : null
-    }, 25)
+    }, config.cleanupInt);
 }
 
 export default startIntro;
